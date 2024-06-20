@@ -1,0 +1,9 @@
+model/*
+objectbox/*
+objectbox-model.json
+dist/*
+build/*
+venv/*
+main.spec
+__pycache__/*
+frontend/__pycache__/*
