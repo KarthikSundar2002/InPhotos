@@ -17,6 +17,7 @@ def batch_image_encode(image_paths, model: CLIPModel, image_processor: CLIPImage
     paths = [image_paths + "/" + path for path in os.listdir(image_paths)]
     images = [Image.open(image_path) for image_path in paths]
     inputs = image_processor.preprocess(images=images, return_tensors="pt")
+    print("Preprocessing is done")
     outputs = model.get_image_features(**inputs)
     print(outputs.shape)
     return outputs

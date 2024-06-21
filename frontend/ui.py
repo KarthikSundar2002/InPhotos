@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QMainWindow, QPushButton, QLabel, QLineEdit, QVBoxLayout, QWidget
+from PyQt6.QtWidgets import QMainWindow, QPushButton, QLabel, QLineEdit, QVBoxLayout, QWidget, QProgressBar
 
 from frontend.image_grid import ImageGrid
 from image_helpers import image_encode, batch_image_encode, text_encode
@@ -19,6 +19,7 @@ class MainWindow(QMainWindow):
         self.label = QLabel("Directory of Images")
         self.inp = QLineEdit()
         encode_button = QPushButton("Encode")
+        self.pbar = QProgressBar()
         self.search_label = QLabel("Search Text")
         self.search_inp = QLineEdit()
         search_button = QPushButton("Search")
@@ -52,4 +53,5 @@ class MainWindow(QMainWindow):
         results = batch_image_encode(image_path, self.model, self.image_processor)
         for i in range(len(paths)):
             self.vec_db.add(paths[i], results[i])
+            self.pbar.setValue((i+1)/len(paths)*100)
         print("Added All Entries in DB")

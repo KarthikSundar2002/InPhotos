@@ -1,13 +1,30 @@
-from PyQt6.QtGui import QPixmap
+from PyQt6.QtGui import QPixmap, QMouseEvent
 from PyQt6.QtWidgets import QLabel
-from PyQt6.QtCore import Qt, QSize
+from PyQt6.QtCore import Qt, QSize, pyqtSignal
+
+from PIL import Image
 
 class ImageView(QLabel):
-    def __init__(self, path):
+    clicked = pyqtSignal()
+
+    def __init__(self, path, resolution=512):
         super().__init__()
+        self.path = path
         pixmap = QPixmap()
+        self.resolution = resolution
+        self.clicked.connect(self.on_click)    
         if pixmap.load(path):
-            pixmap = pixmap.scaled(QSize(512, 512),Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
+            pixmap = pixmap.scaled(QSize(resolution, resolution),Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
             self.setPixmap(pixmap)
         else:
             print("Failed to load image at path", path)
+    
+    def mousePressEvent(self, event: QMouseEvent):
+        self.clicked.emit()
+
+    def on_click(self):
+        img = Image.open(self.path)
+        img.show()
+        
+    
+    
