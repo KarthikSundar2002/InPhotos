@@ -26,6 +26,7 @@ class MainWindow(QMainWindow):
         layout.addWidget(self.label)
         layout.addWidget(self.inp)
         layout.addWidget(encode_button)
+        layout.addWidget(self.pbar)
         layout.addWidget(self.search_label)
         layout.addWidget(self.search_inp)
         layout.addWidget(search_button)
@@ -53,5 +54,5 @@ class MainWindow(QMainWindow):
         results = batch_image_encode(image_path, self.model, self.image_processor)
         for i in range(len(paths)):
             self.vec_db.add(paths[i], results[i])
-            self.pbar.setValue((i+1)/len(paths)*100)
+            self.pbar.setValue(int((i+1)/len(paths)*100))
         print("Added All Entries in DB")

@@ -1,4 +1,5 @@
 from objectbox import *
+import os
 
 @Entity()
 class Photo:
@@ -7,8 +8,8 @@ class Photo:
     vector = Float32Vector(index=HnswIndex(dimensions=512, distance_type= VectorDistanceType.COSINE))
 
 class DB:
-    def __init__(self, directory="/home/stark/Documents/projects/InPhotos/db"):
-        self.store = Store()
+    def __init__(self, directory):
+        self.store = Store(directory=directory+"/objectbox", model_json_file=os.path.join(directory, "objectbox-model.json"))
         self.box = self.store.box(Photo)
     
     def add(self, path, vector):

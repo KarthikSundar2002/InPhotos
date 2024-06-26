@@ -1,4 +1,4 @@
-import eel, os
+import os
 from PIL import Image
 
 from transformers import CLIPModel, CLIPImageProcessor, CLIPTokenizerFast

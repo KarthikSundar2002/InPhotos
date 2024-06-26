@@ -3,7 +3,6 @@ bottle==0.12.25
 bottle-websocket==0.2.9
 certifi==2024.6.2
 charset-normalizer==3.3.2
-eel==0.16.0
 filelock==3.15.1
 flatbuffers==24.3.25
 fsspec==2024.6.0
