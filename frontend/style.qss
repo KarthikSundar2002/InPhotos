@@ -1,0 +1,87 @@
+@font-face {
+    font-family: "Quicksand";
+    src: url(../external/Quicksand-VariableFont_wght.ttf);
+} 
+
+QMainWindow{
+    font-family: "Quicksand";
+    background-color: #002525;
+}
+
+QTabWidget::pane{
+    font-family: "Quicksand";
+    background-color: #023535;
+    border:none;
+}
+
+QLabel{
+    font-size: 42px;
+    font-weight: 400;
+    font-family: 'Quicksand';
+    color: white;
+    margin-bottom: 0.5em;
+}
+
+QTabBar::tab{
+    background-color: #012A2A;
+    color: #878787;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-top: 0.2em;
+    font-size: 3em;
+    text-align: center;
+    padding: 0.5em;
+    width: 15em;
+}
+
+QTabBar::tab:selected{
+    background-color: #023535;
+    color: white;
+}
+
+QTabBar::tab:first{
+    margin-left: 1em;
+}
+
+QTabWidget{
+    font-family: "Quicksand";
+    background-color: #002525;
+    color: white;
+    border: none;
+}
+
+QLineEdit{
+    border-radius: 15px;
+    background-color: #002525;
+    color: white;
+    font-size: 30px;
+    padding: 0.25em;
+}
+
+QPushButton{
+    background-color: #002525;
+    color:  #0FC2C0;
+    border-radius: 30px;
+    font-size: 30px;
+    font-weight: 100;
+    padding: 30px 10px;
+    max-width: 400px;
+    min-width: 200px;
+}
+
+QProgressBar {
+    border-radius: 10px;
+    height: 10px;
+    background-color: #002525;
+}
+
+QProgressBar::chunk {
+    border-radius: 10px;
+    background-color: #0FC2C0;
+}
+
+ImageView{
+    border-radius: 30px;
+}

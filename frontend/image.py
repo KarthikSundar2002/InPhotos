@@ -12,7 +12,8 @@ class ImageView(QLabel):
         self.path = path
         pixmap = QPixmap()
         self.resolution = resolution
-        self.clicked.connect(self.on_click)    
+        self.clicked.connect(self.on_click) 
+        self.setStyleSheet("border-radius: 10px;")   
         if pixmap.load(path):
             pixmap = pixmap.scaled(QSize(resolution, resolution),Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
             self.setPixmap(pixmap)

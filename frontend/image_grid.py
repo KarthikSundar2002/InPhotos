@@ -1,8 +1,4 @@
-from PyQt6.QtWidgets import QLabel, QVBoxLayout, QWidget, QGridLayout
-from PyQt6.QtGui import QPixmap
-from PyQt6.QtCore import Qt, QSize
-
-import os
+from PyQt6.QtWidgets import QWidget, QGridLayout
 
 from frontend.image import ImageView
 
