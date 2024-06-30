@@ -1,8 +1,9 @@
 from transformers import  CLIPModel, CLIPImageProcessor, CLIPTokenizer
 from PyQt6.QtWidgets import QApplication
 from PyQt6.QtGui import QFontDatabase, QFont
+import torch
 
-
+from edgeface.backbones import get_model
 from frontend.ui import MainWindow
 from db import DB
 import sys, os
@@ -31,13 +32,20 @@ if is_first_time:
             f.write(a.read())
     os.environ["INPHOTOS_INIT"] = "1"
 
+print("Hi")
 vec_db = DB(directory=os.environ["INPHOTOS_DB"])
-
+print("Hello")
 model = CLIPModel.from_pretrained(os.environ["INPHOTOS_MODEL"])
 image_processor = CLIPImageProcessor.from_pretrained(os.environ["INPHOTOS_MODEL"])
 text_tokenizer = CLIPTokenizer.from_pretrained(os.environ["INPHOTOS_MODEL"])
-
-window = MainWindow(model=model, text_tokenizer=text_tokenizer, vec_db=vec_db, image_processor=image_processor)
+print("Clip model loaded")
+facial_model_name = 'edgeface_s_gamma_05'
+facial_model = get_model(facial_model_name)
+checkpoint_path = f'edgeface/checkpoints/edgeface_s_gamma_05.pt'
+facial_model.load_state_dict(torch.load(checkpoint_path, map_location='cpu'))
+facial_model.eval()
+print("Facial model loaded")
+window = MainWindow(model=model, text_tokenizer=text_tokenizer, vec_db=vec_db, image_processor=image_processor, facial_model=facial_model)
 window.show()
 
 app.exec()

@@ -1,35 +1,70 @@
 {
-    "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
-    "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
-    "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
-    "modelVersionParserMinimum": 5,
-    "entities": [
-      {
-        "id": "1:6918846983100567817",
-        "name": "Photo",
-        "lastPropertyId": "3:6584701796758820095",
-        "properties": [
-          {
-            "id": "1:6020898233597635390",
-            "name": "id",
-            "type": 6,
-            "flags": 1
-          },
-          {
-            "id": "2:6181290593894810127",
-            "name": "path",
-            "type": 9
-          },
-          {
-            "id": "3:6584701796758820095",
-            "name": "vector",
-            "type": 28,
-            "flags": 8,
-            "indexId": "1:5060604419493700403"
-          }
-        ]
-      }
-    ],
-    "lastEntityId": "1:6918846983100567817",
-    "lastIndexId": "1:5060604419493700403"
-  }
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "modelVersionParserMinimum": 5,
+  "entities": [
+    {
+      "id": "1:7469020450634643529",
+      "name": "Photo",
+      "lastPropertyId": "4:5926262898536641682",
+      "properties": [
+        {
+          "id": "1:2890810132448305249",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7460864281533169534",
+          "name": "path",
+          "type": 9
+        },
+        {
+          "id": "3:7447693550305523300",
+          "name": "vector",
+          "type": 28,
+          "flags": 8,
+          "indexId": "1:7148625888976445677"
+        },
+        {
+          "id": "4:5926262898536641682",
+          "name": "people",
+          "type": 26
+        }
+      ]
+    },
+    {
+      "id": "2:4660460732332855829",
+      "name": "People",
+      "lastPropertyId": "4:3039359814315201552",
+      "properties": [
+        {
+          "id": "1:3254059408176166909",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4567023142737965312",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:6346204062704428080",
+          "name": "vector",
+          "type": 28,
+          "flags": 8,
+          "indexId": "2:2968557055911280731"
+        },
+        {
+          "id": "4:3039359814315201552",
+          "name": "face_path",
+          "type": 9
+        }
+      ]
+    }
+  ],
+  "lastEntityId": "2:4660460732332855829",
+  "lastIndexId": "2:2968557055911280731"
+}

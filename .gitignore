@@ -7,3 +7,7 @@ venv/*
 main.spec
 __pycache__/*
 frontend/__pycache__/*
+test/*
+mtcnn/*
+db/*
+db/objectbox/*

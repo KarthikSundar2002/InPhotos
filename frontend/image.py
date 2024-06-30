@@ -1,6 +1,6 @@
-from PyQt6.QtGui import QPixmap, QMouseEvent
+from PyQt6.QtGui import QPixmap, QMouseEvent, QPainter, QPainterPath
 from PyQt6.QtWidgets import QLabel
-from PyQt6.QtCore import Qt, QSize, pyqtSignal
+from PyQt6.QtCore import Qt, QSize, pyqtSignal, QRect
 
 from PIL import Image
 
@@ -26,6 +26,8 @@ class ImageView(QLabel):
     def on_click(self):
         img = Image.open(self.path)
         img.show()
+    
+   
         
     
     
