@@ -32,5 +32,6 @@ class SearchTab(QWidget):
         
         enc = text_encode(text, self.model, self.text_tokenizer)
         results = self.vec_db.search(enc, ner)
+        print(results)
         paths = [result["path"] for result in results] 
         self.image_grid.populate(paths)

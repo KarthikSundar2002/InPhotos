@@ -2,10 +2,11 @@ from transformers import  CLIPModel, CLIPImageProcessor, CLIPTokenizer
 from PyQt6.QtWidgets import QApplication
 from PyQt6.QtGui import QFontDatabase, QFont
 import torch
+import duckdb
 
 from edgeface.backbones import get_model
 from frontend.ui import MainWindow
-from db import DB
+from duck_db import DB
 import sys, os
 
 app = QApplication(sys.argv)
@@ -33,7 +34,8 @@ if is_first_time:
     os.environ["INPHOTOS_INIT"] = "1"
 
 print("Hi")
-vec_db = DB(directory=os.environ["INPHOTOS_DB"])
+#vec_db = duckdb.connect("./duckdb/vec.db")
+vec_db = DB()
 print("Hello")
 model = CLIPModel.from_pretrained(os.environ["INPHOTOS_MODEL"])
 image_processor = CLIPImageProcessor.from_pretrained(os.environ["INPHOTOS_MODEL"])

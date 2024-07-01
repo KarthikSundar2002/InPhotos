@@ -56,17 +56,15 @@ class AddTab(QWidget):
 
     def find_cluster_paths(self):
         people = self.vec_db.get_people()
+        
         cluster_paths = []
         peep_ids = []
         for person in people:
-            if person.name == "Unknown":
-                cluster_paths.append(person.face_path)
-                peep_ids.append(person.id)
+            print(person)
+            if person[1] == "Unknown":
+                cluster_paths.append(person[3])
+                peep_ids.append(person[0])
             if len(cluster_paths) == 3:
                 break
-        print("Cluster Paths:")
-        print(cluster_paths)
-        print("Peep IDs:")
-        print(peep_ids)
         self.cluster_paths = cluster_paths
         self.person_ids = peep_ids
