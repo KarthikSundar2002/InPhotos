@@ -1,14 +1,13 @@
 from PyQt6.QtWidgets import QLabel, QVBoxLayout, QWidget, QLineEdit, QPushButton, QSizePolicy, QSpacerItem
 from PyQt6.QtCore import Qt
-from image_helpers import text_encode, named_entity_recognition
+from image_helpers import text_encode
 from frontend.image_grid import ImageGrid
 
 
 class SearchTab(QWidget):
-    def __init__(self, text_tokenizer, vec_db, model):
+    def __init__(self,vec_db, model):
         super().__init__()
 
-        self.text_tokenizer = text_tokenizer
         self.vec_db = vec_db
         self.model = model
 
@@ -28,10 +27,7 @@ class SearchTab(QWidget):
     
     def search_signal(self):
         text = self.search_inp.text()
-        ner = named_entity_recognition(text)
-        
-        enc = text_encode(text, self.model, self.text_tokenizer)
-        results = self.vec_db.search(enc, ner)
-        print(results)
+        enc = text_encode(text, self.model)
+        results = self.vec_db.search(enc)
         paths = [result["path"] for result in results] 
         self.image_grid.populate(paths)
